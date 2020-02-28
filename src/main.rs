@@ -1,30 +1,16 @@
+mod opt;
+
+use crate::opt::{Opt, Subcmd};
+use rayon::prelude::*;
 use std::{
     collections::HashMap,
     convert::TryFrom,
     io,
     path::{Path, PathBuf},
 };
-use rayon::prelude::*;
 use structopt::StructOpt;
 use tgcd::{Blake2bHash, Tag, TgcdClient};
 use thiserror::Error;
-
-#[derive(StructOpt)]
-struct Opt {
-    #[structopt(short, long)]
-    json: bool,
-
-    #[structopt(subcommand)]
-    cmd: Subcmd,
-}
-
-#[derive(StructOpt)]
-enum Subcmd {
-    AddFileTags { file: PathBuf, tags: Vec<String> },
-    GetFileTags { file: PathBuf },
-    GetFilesTags { files: Vec<String> },
-    CopyTags { src: PathBuf, dest: PathBuf },
-}
 
 #[derive(Error, Debug)]
 enum Error {
