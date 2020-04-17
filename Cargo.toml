@@ -17,7 +17,7 @@ structopt = "0.3.12"
 rayon = "1.3.0"
 serde_json = "1.0.51"
 tonic = "0.2.0"
-tgcd = { git = "https://github.com/foldu/tgcd", rev = "4263ea57de6b2fb5f3bb9131461243a9dac97e1a" }
+tgcd = { git = "https://github.com/foldu/tgcd", rev = "267f03adb3b39031f0c02ce7920228189004591b" }
 
 [build-dependencies]
 structopt = "0.3.12"
