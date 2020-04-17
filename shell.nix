@@ -2,9 +2,6 @@ let
   pkgs = import <nixpkgs> {};
 in
 pkgs.mkShell {
-  nativeBuildInputs = with pkgs; [
-    protobuf
-  ];
-  buildInputs = [];
+  buildInputs = with pkgs; [ protobuf ];
   PROTOC = "${pkgs.protobuf}/bin/protoc";
 }
