@@ -1,4 +1,4 @@
-{ naersk }:
+{ naersk, protobuf, installShellFiles }:
 let
   src = builtins.filterSource
     (path: type: type != "directory" || builtins.baseNameOf path != "target")
@@ -7,8 +7,8 @@ in
 naersk.buildPackage {
   inherit src;
   buildInputs = [
-    pkgs.protobuf
-    pkgs.installShellFiles
+    protobuf
+    installShellFiles
   ];
   PROTOC = "${pkgs.protobuf}/bin/protoc";
   postInstall = ''
