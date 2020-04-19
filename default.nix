@@ -10,7 +10,7 @@ naersk.buildPackage {
     protobuf
     installShellFiles
   ];
-  PROTOC = "${pkgs.protobuf}/bin/protoc";
+  PROTOC = "${protobuf}/bin/protoc";
   postInstall = ''
     installShellCompletion target/release/build/tgc-*/out/tgc.{fish,bash}
     installShellCompletion --zsh target/release/build/tgc-*/out/_tgc
